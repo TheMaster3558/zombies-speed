@@ -3,7 +3,9 @@
 #include <stdexcept>
 #include <string>
 #include <cstdio>
-using namespace std;
+
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
 
 
 const char RIGHT = '>';
@@ -19,10 +21,10 @@ const char END_OF_WHILE = ']';
 
 class BF {
     public:
-        vector<long> cells;
+        std::vector<long> cells;
         long index;
 
-        void run(string code) {
+        void run(std::string code) {
             size_t code_len = code.size();
             unsigned long end;
 
@@ -68,7 +70,7 @@ class BF {
                         }
                     }
                     if (end == -1) {
-                        throw runtime_error("Unclosed bracket");
+                        throw std::runtime_error("Unclosed bracket");
                     }
 
                     i++;
@@ -88,3 +90,9 @@ class BF {
             }
         }
 };
+
+
+PYBIND11_MODULE(example, m) {
+    py::class_<BF>(m, "BF")
+        .def("run", &BF::run);
+}
