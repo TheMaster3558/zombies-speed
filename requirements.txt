@@ -1,2 +1,1 @@
-pip install pybind11
-git+https://github.com/chawkk6404/zombies
+pybind11
