@@ -27,7 +27,7 @@ class BF {
             unsigned long end;
 
             char currentChar;
-            decltype(code.size()) i;
+            size_t i;
 
             for (i = 0; i < code_len; i++) {
                 currentChar = code[i];
@@ -61,9 +61,9 @@ class BF {
                 }
                 else if (currentChar == START_OF_WHILE) {
                     end = -1;
-                    for (decltype(code.size()) j; i < code_len; j++) {
-                        if (code[j] == END_OF_WHILE) {
-                            end = i + j;
+                    for (size_t j; j < code_len; j++) {
+                        if (code[long(j)] == END_OF_WHILE) {
+                            end = long(i + j);
                             break;
                         }
                     }
