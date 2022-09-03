@@ -1,4 +1,5 @@
 import setuptools
+import shutil
 
 
 with open('requirements.txt', 'r') as file:
@@ -9,11 +10,8 @@ with open('README.rst', 'r') as file:
     readme = file.read()
 
 
-packages = ['zombies']
-
-
 extensions = [
-    setuptools.Extension('zombies.zombies', ['zombies/zombies.c'])
+    setuptools.Extension('zombies.zombies', ['zombies.cpp'])
 ]
 
 
@@ -25,6 +23,5 @@ setuptools.setup(
     description="A speedup for zombies.",
     long_description=readme,
     long_description_content_type="text/x-rst",
-    packages=packages,
     ext_modules=extensions
 )
