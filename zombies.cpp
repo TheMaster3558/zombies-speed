@@ -54,7 +54,7 @@ class BF {
                     cells[index]--;
                 }
                 else if (currentChar == INPUT) {
-                    cells[index] = getchar()
+                    cells[index] = getchar();
                 }
                 else if (currentChar == OUTPUT) {
                     putchar(cells[index]);
