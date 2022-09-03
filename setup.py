@@ -1,5 +1,4 @@
 import setuptools
-import shutil
 
 
 with open('requirements.txt', 'r') as file:
