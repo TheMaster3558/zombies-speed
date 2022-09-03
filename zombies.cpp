@@ -27,10 +27,8 @@ class BF {
             unsigned long end;
 
             char currentChar;
-            char inputChar;
-            char outputChar;
-
             size_t i;
+
             for (i = 0; i < code_len; i++) {
                 currentChar = code[i];
                 if (currentChar == RIGHT) {
@@ -56,12 +54,10 @@ class BF {
                     cells[index]--;
                 }
                 else if (currentChar == INPUT) {
-                    inputChar = getchar();
-                    cells[index] = inputChar;
+                    cells[index] = getchar()
                 }
                 else if (currentChar == OUTPUT) {
-                    outputChar = cells[index];
-                    putchar(outputChar);
+                    putchar(cells[index]);
                 }
                 else if (currentChar == START_OF_WHILE) {
                     end = -1;
