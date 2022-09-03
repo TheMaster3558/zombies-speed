@@ -9,11 +9,11 @@ with open("README.rst", "r") as file:
     readme = file.read()
 
 
-extensions = [Extension("zombies", ["zombies.cpp"], language="c++")]
+extensions = [Extension("zombies.zombies", ["zombies.cpp"], language="c++")]
 
 
 setup(
-    name="zombies",
+    name="zombies-speed",
     version="1.0.0a",
     author="The Master",
     license="MIT",
