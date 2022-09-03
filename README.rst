@@ -11,9 +11,27 @@ MIT
 
 Installation
 -------------
+First install `pybind11`
+
+.. code-block:: sh
+
+    $ pip install pybind11
+
 .. code-block:: sh
 
     $ pip install zombies-speed
+
+If you get an error includes this
+
+.. code-block::
+
+    fatal error: pybind11/pybind11.h No such file or directory
+
+Run this
+
+.. code-block:: sh
+
+    pip install pybind11[global]
 
 
 Code Formatting
