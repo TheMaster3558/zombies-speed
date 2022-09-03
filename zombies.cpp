@@ -19,20 +19,18 @@ const char END_OF_WHILE = ']';
 
 class BF {
     public:
-        vector<int> cells;
+        vector<long> cells;
         long index;
 
         void run(string code) {
             size_t code_len = code.size();
+            unsigned long end;
 
             char currentChar;
             char inputChar;
             char outputChar;
 
-            unsigned long end;
-            char next_char;
-
-            int i;
+            size_t i;
             for (i = 0; i < code_len; i++) {
                 currentChar = code[i];
                 if (currentChar == RIGHT) {
