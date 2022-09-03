@@ -23,7 +23,7 @@ Then install this package
 
     $ pip install zombies-speed
 
-If you get an error includes this
+If you get an error that includes this
 
 .. code-block::
 
