@@ -17,6 +17,8 @@ First install `pybind11`
 
     $ pip install pybind11
 
+Then install this package
+
 .. code-block:: sh
 
     $ pip install zombies-speed
