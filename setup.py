@@ -1,4 +1,5 @@
 from setuptools import setup, Extension
+from pybind11.setup_helpers import Pybind11Extension
 
 
 with open("requirements.txt", "r") as file:
@@ -9,7 +10,7 @@ with open("README.rst", "r") as file:
     readme = file.read()
 
 
-extensions = [Extension("zombies.zombies", ["zombies.cpp"], language="c++")]
+extensions = [Pybind11Extension('zombies.zombies', ['zombies.cpp'])]
 
 
 setup(
