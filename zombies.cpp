@@ -2,19 +2,19 @@
 #include <vector>
 #include <stdexcept>
 #include <string>
-#include <cstring>
 #include <cstdio>
 using namespace std;
 
 
-const string RIGHT = ">";
-const string LEFT = "<";
-const string INCREASE = "+";
-const string DECREASE = "-";
-const string INPUT = ",";
-const string OUTPUT = ".";
-const string START_OF_WHILE = "[";
-const string END_OF_WHILE = "]";
+const char RIGHT = '>';
+const char LEFT = '<';
+const char INCREASE = '+';
+const char DECREASE = '-';
+const char INPUT = ',';
+const char OUTPUT = '.';
+const char START_OF_WHILE = '[';
+const char END_OF_WHILE = ']';
+
 
 
 class BF {
@@ -23,7 +23,7 @@ class BF {
         long index;
 
         void run(string code) {
-            size_t code_len = strlen(code);
+            size_t code_len = code.size();
 
             char currentChar;
             char inputChar;
@@ -32,42 +32,45 @@ class BF {
             unsigned long end;
             char next_char;
 
-            for (int i = 0; i < code_len; i++) {
+            int i;
+            for (i = 0; i < code_len; i++) {
                 currentChar = code[i];
-                if (strcmp(currentChar, RIGHT) == 0) {
+                if (currentChar == RIGHT) {
                     index++;
                     while (index > cells.size()) {
                         cells.push_back(0);
                     }
                 }
-                else if (strcmp(currentChar, LEFT) == 0) {
-                    while (index <= 0) {
-                        cells.insert(cells.begin(), 0);
+                else if (currentChar == LEFT){
+                    if (index <= 0) {
+                        while (index <= 0) {
+                            cells.insert(cells.begin(), 0);
+                        }
                     }
                     else {
                         index--;
                     }
                 }
-                else if (strcmp(currentChar, INCREASE) == 0) {
+                else if (currentChar == INCREASE) {
                     cells[index]++;
                 }
-                else if (strcmp(currentChar, DECREASE) == 0) {
+                else if (currentChar == DECREASE) {
                     cells[index]--;
                 }
-                else if (strcmp(currentChar, INPUT) == 0) {
+                else if (currentChar == INPUT) {
                     inputChar = getchar();
                     cells[index] = inputChar;
                 }
-                else if (strcmp(currentChar, OUTPUT) == 0) {
+                else if (currentChar == OUTPUT) {
                     outputChar = cells[index];
                     putchar(outputChar);
                 }
-                else if (strcmp(currentChar, START_OF_WHILE) == 0) {
+                else if (currentChar == START_OF_WHILE) {
                     end = -1;
-                    for (int j = i; next_pos < code_len; next_pos++) {
-                        if (code[next_pos] == END_OF_WHILE) {
+                    for (int j = i; j < code_len; j++) {
+                        if (code[j] == END_OF_WHILE) {
                             end = i + j;
-                            break
+                            break;
                         }
                     }
                     if (end == -1) {
@@ -80,7 +83,7 @@ class BF {
                     }
 
                     if (end >= code_len) {
-                        return
+                        return;
                     }
                     else {
                         while (i < end) {
@@ -90,5 +93,4 @@ class BF {
                 }
             }
         }
-}
-
+};
