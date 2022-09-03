@@ -61,7 +61,7 @@ class BF {
                 }
                 else if (currentChar == START_OF_WHILE) {
                     end = -1;
-                    for (int j = i; j < code_len; j++) {
+                    for (unsigned long j = long(i); size_t(j) < code_len; j++) {
                         if (code[j] == END_OF_WHILE) {
                             end = i + j;
                             break;
