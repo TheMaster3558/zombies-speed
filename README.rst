@@ -23,7 +23,7 @@ Then install this package
 
     $ pip install zombies-speed
 
-If you get an error that includes this
+If you get an error that has this in it (Usually happens when you are inside a Virtual Env)
 
 .. code-block::
 
