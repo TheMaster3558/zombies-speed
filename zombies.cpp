@@ -92,7 +92,7 @@ class BF {
 };
 
 
-PYBIND11_MODULE(example, m) {
+PYBIND11_MODULE(zombies, m) {
     py::class_<BF>(m, "BF")
         .def("run", &BF::run);
 }
