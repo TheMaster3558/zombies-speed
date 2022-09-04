@@ -94,5 +94,6 @@ class BF {
 
 PYBIND11_MODULE(zombies, m) {
     py::class_<BF>(m, "BF")
+        .def(py::init<>())
         .def("run", &BF::run);
 }
