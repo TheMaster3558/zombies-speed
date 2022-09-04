@@ -24,6 +24,14 @@ class BF {
         std::vector<long> cells;
         long index;
 
+        void print_cells() {
+            std::cout << "[";
+            for (int i = 0; i < cells.size(); i++) {
+                std::cout << cells.at(i) << ", ";
+            }
+            std::cout << "]" << std::endl;
+        }
+
         void run(std::string code) {
             size_t code_len = code.size();
             unsigned long end;
