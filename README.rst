@@ -1,6 +1,7 @@
 zombies-speed
 ==============
 A speed up to `zombies <https://github.com/chawkk6404/zombies>`_ made in C++.
+It is ~35 times faster the the pure python module.
 
 
 License
