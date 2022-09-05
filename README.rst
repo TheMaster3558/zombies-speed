@@ -29,7 +29,7 @@ If you get an error that has this in it (Usually happens when you are inside a V
 
     fatal error: pybind11/pybind11.h No such file or directory
 
-Run this
+Run this and try again
 
 .. code-block:: sh
 
