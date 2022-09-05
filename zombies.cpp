@@ -21,7 +21,7 @@ const char END_OF_WHILE = ']';
 
 class BF {
     public:
-        std::vector<long> cells;
+        std::vector<long> cells = {0};
         long index;
 
         void print_cells() {
@@ -34,7 +34,7 @@ class BF {
 
         void run(std::string code) {
             size_t code_len = code.size();
-            unsigned long end;
+            size_t end;
 
             char currentChar;
             size_t i;
@@ -43,7 +43,7 @@ class BF {
                 currentChar = code[i];
                 if (currentChar == RIGHT) {
                     index++;
-                    while (index > cells.size()) {
+                    while (index >= cells.size()) {
                         cells.push_back(0);
                     }
                 }
@@ -71,9 +71,9 @@ class BF {
                 }
                 else if (currentChar == START_OF_WHILE) {
                     end = -1;
-                    for (size_t j; j < code_len; j++) {
-                        if (code[long(j)] == END_OF_WHILE) {
-                            end = long(i + j);
+                    for (size_t j = i; j < code_len; j++) {
+                        if (code[j] == END_OF_WHILE) {
+                            end = j;
                             break;
                         }
                     }
