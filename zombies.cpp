@@ -117,6 +117,6 @@ PYBIND11_MODULE(zombies, m) {
     py::class_<BF>(m, "BF")
         .def(py::init<>())
         .def("print_cells", &BF::print_cells)
-        .def("run", &BF::run);
-        .def("run_file", &BF::run_file)
+        .def("run", &BF::run)
+        .def("run_file", &BF::run_file);
 }
