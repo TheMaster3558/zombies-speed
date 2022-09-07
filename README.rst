@@ -17,23 +17,17 @@ First install `pybind11`
 
     $ pip install pybind11
 
+If you are in a Virtual Env run this instead
+
+.. code-block:: sh
+
+    $ pip install pybind11[global]
+
 Then install this package
 
 .. code-block:: sh
 
     $ pip install zombies-speed
-
-If you get an error that has this in it (Usually happens when you are inside a Virtual Env)
-
-.. code-block::
-
-    fatal error: pybind11/pybind11.h No such file or directory
-
-Run this and try again
-
-.. code-block:: sh
-
-    pip install pybind11[global]
 
 
 Code Formatting
