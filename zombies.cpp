@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <stdexcept>
 #include <string>
@@ -97,6 +98,18 @@ class BF {
                 }
             }
         }
+
+        void run_file(std::string filename) {
+            std::ifstream file(filename);
+            std::string code (
+                    (std::istreambuf_iterator<char>(file)),
+                    (std::istreambuf_iterator<char>())
+            );
+            file.close();
+
+            run(code);
+
+        }
 };
 
 
@@ -105,4 +118,5 @@ PYBIND11_MODULE(zombies, m) {
         .def(py::init<>())
         .def("print_cells", &BF::print_cells)
         .def("run", &BF::run);
+        .def("run_file", &BF::run_file)
 }
