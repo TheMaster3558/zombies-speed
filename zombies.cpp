@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <string>
 #include <cstdio>
+#include <cmath>
 
 #include <pybind11/pybind11.h>
 namespace py = pybind11;
@@ -23,14 +24,27 @@ const char END_OF_WHILE = ']';
 class BF {
     public:
         std::vector<long> cells = {0};
-        long index;
+        unsigned long index;
 
         void print_cells() {
-            std::cout << "[";
-            for (int i = 0; i < cells.size(); i++) {
-                std::cout << cells.at(i) << ", ";
+            std::string vectorContents = "[";
+            unsigned long vectorEndIndex = cells.size() - 1;
+            unsigned long spaces;
+
+            for (unsigned long i = 0; i <= vectorEndIndex; i++) {
+                if (i == index) {
+                    spaces = vectorContents.size() + ceil(std::to_string(cells.at(i)).size() / 2);
+                }
+                vectorContents += std::to_string(cells.at(i));
+                if (i != vectorEndIndex) {
+                    vectorContents += ", ";
+                }
             }
-            std::cout << "]" << std::endl;
+            vectorContents += "]\n";
+            std::string caratString(spaces, ' ');
+            caratString += "^\n";
+
+            std::cout << vectorContents << caratString;
         }
 
         void run(std::string code) {
@@ -44,13 +58,13 @@ class BF {
                 currentChar = code[i];
                 if (currentChar == RIGHT) {
                     index++;
-                    while (index >= cells.size()) {
+                    if (index >= cells.size()) {
                         cells.push_back(0);
                     }
                 }
                 else if (currentChar == LEFT){
                     if (index <= 0) {
-                        while (index <= 0) {
+                        if (index <= 0) {
                             cells.insert(cells.begin(), 0);
                         }
                     }
