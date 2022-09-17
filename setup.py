@@ -1,14 +1,6 @@
 from setuptools import setup, Extension
 
 
-try:
-    import pybind11
-except ImportError:
-    raise ImportError(
-        "pybind11 must be installed with pip install pybind11 or pip install pybind11[global]"
-    )
-
-
 with open("requirements.txt", "r") as file:
     requirements = file.read().splitlines()
 
